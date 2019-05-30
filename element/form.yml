@@ -1,0 +1,44 @@
+-
+  type: form
+  attribute:
+    method: post
+    target: html
+    action: replace
+  innerHTML:
+    -
+      type: textarea
+      attribute:
+        name: html
+        style: 'width:100%;height:300px'
+      innerHTML:
+    -
+      type: span
+      attribute:
+        onclick: document.getElementById('replace_from').value = '\\r\\n'
+      innerHTML: From
+    -
+      type: input
+      attribute:
+        type: text
+        name: replace_from
+        id: replace_from
+    -
+      type: span
+      attribute:
+        onclick: document.getElementById('replace_to').value = '\\t'
+      innerHTML: To
+    -
+      type: input
+      attribute:
+        type: text
+        name: replace_to
+        id: replace_to
+    -
+      type: input
+      attribute:
+        type: submit
+-
+  type: iframe
+  attribute:
+    style: 'width:100%;height:300px'
+    name: html
