@@ -9,6 +9,13 @@ class PluginButoStr_replace{
     wfDocument::renderElement($element->get());
   }
   public function page_replace(){
+    /**
+     * Turn off trim.
+     */
+    wfRequest::$trim = false;
+    /**
+     * 
+     */
     $html = wfRequest::get('html');
     $from = wfRequest::get('replace_from');
     $to = wfRequest::get('replace_to');
