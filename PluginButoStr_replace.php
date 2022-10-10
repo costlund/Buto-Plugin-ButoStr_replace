@@ -19,6 +19,9 @@ class PluginButoStr_replace{
     $html = wfRequest::get('html');
     $from = wfRequest::get('replace_from');
     $to = wfRequest::get('replace_to');
+    /**
+     * modify data
+     */
     if($from=='\n'){
       $from = "\n";
     }elseif($from=='\r\n'){
@@ -31,7 +34,37 @@ class PluginButoStr_replace{
     }elseif($to=='\t'){
       $to = "\t";
     }
-    $html = str_replace($from, $to, $html);
+    /**
+     * 
+     */
+    if($from == '[beginning]'){
+      wfPlugin::includeonce('string/array');
+      $sa = new PluginStringArray();
+      $data = $sa->from_br($html);
+      foreach($data as $k => $v){
+        $data[$k] = $to.$v;
+      }
+      $html = '';
+      foreach($data as $v){
+        $html .= $v."\n";
+      }
+    }elseif($from == '[end]'){
+      wfPlugin::includeonce('string/array');
+      $sa = new PluginStringArray();
+      $data = $sa->from_br($html);
+      foreach($data as $k => $v){
+        $data[$k] = $v.$to;
+      }
+      $html = '';
+      foreach($data as $v){
+        $html .= $v."\n";
+      }
+    }else{
+      $html = str_replace($from, $to, $html);
+    }
+    /**
+     * 
+     */
     $element = new PluginWfYml(__DIR__.'/element/replace.yml');
     $element->setByTag(array('html' => $html));
     wfDocument::renderElement($element->get());

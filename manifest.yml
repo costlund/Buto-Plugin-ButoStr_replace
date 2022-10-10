@@ -1,5 +1,9 @@
-version: 1.1.2
+version: 1.2.0
 history:
+  1.2.0:
+    date: '2022-10-09'
+    title: Beginning or end
+    description: 'One could add data at the beginning or end of each line.'
   1.1.2:
     date: '2022-09-27'
     title: Versions

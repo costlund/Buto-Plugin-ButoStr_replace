@@ -38,6 +38,44 @@
       attribute:
         type: submit
 -
+  type: div
+  attribute: 
+    class: alert alert-info
+  innerHTML: 
+    -
+      type: div
+      innerHTML:
+        - 
+          type: strong
+          attribute:
+            class: content-colon
+          innerHTML: Line breake
+        - 
+          type: span
+          innerHTML: "&bsol;n or &bsol;r&bsol;n"
+    -
+      type: div
+      innerHTML:
+        - 
+          type: strong
+          attribute:
+            class: content-colon
+          innerHTML: Tab
+        - 
+          type: span
+          innerHTML: "&bsol;t"
+    -
+      type: div
+      innerHTML:
+        - 
+          type: strong
+          attribute:
+            class: content-colon
+          innerHTML: From can have this to add first or last on each line
+        - 
+          type: span
+          innerHTML: "[beginning] or [end]"
+-
   type: iframe
   attribute:
     style: 'width:100%;height:300px'
