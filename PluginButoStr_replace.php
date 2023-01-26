@@ -10,6 +10,10 @@ class PluginButoStr_replace{
   }
   public function page_replace(){
     /**
+     * length
+     */
+    $length = new PluginWfArray();
+    /**
      * Turn off trim.
      */
     wfRequest::$trim = false;
@@ -19,6 +23,10 @@ class PluginButoStr_replace{
     $html = wfRequest::get('html');
     $from = wfRequest::get('replace_from');
     $to = wfRequest::get('replace_to');
+    /**
+     * length before
+     */
+    $length->set('before', strlen($html));
     /**
      * modify data
      */
@@ -63,10 +71,15 @@ class PluginButoStr_replace{
       $html = str_replace($from, $to, $html);
     }
     /**
+     * length after
+     */
+    $length->set('after', strlen($html));
+    /**
      * 
      */
     $element = new PluginWfYml(__DIR__.'/element/replace.yml');
     $element->setByTag(array('html' => $html));
+    $element->setByTag($length->get(), 'length');
     wfDocument::renderElement($element->get());
   }
 }

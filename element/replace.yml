@@ -1,4 +1,26 @@
 -
+  type: div
+  innerHTML:
+    - 
+      type: strong
+      attribute:
+        class: content-colon
+      innerHTML: Before
+    - 
+      type: span
+      innerHTML: length:before
+-
+  type: div
+  innerHTML:
+    - 
+      type: strong
+      attribute:
+        class: content-colon
+      innerHTML: After
+    - 
+      type: span
+      innerHTML: length:after
+-
   type: textarea
   attribute:
     style: 'width:100%;height:300px'
