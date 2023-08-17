@@ -26,7 +26,7 @@ class PluginButoStr_replace{
     /**
      * length before
      */
-    $length->set('before', strlen($html));
+    $length->set('before', wfPhpfunc::strlen($html));
     /**
      * modify data
      */
@@ -68,12 +68,12 @@ class PluginButoStr_replace{
         $html .= $v."\n";
       }
     }else{
-      $html = str_replace($from, $to, $html);
+      $html = wfPhpfunc::str_replace($from, $to, $html);
     }
     /**
      * length after
      */
-    $length->set('after', strlen($html));
+    $length->set('after', wfPhpfunc::strlen($html));
     /**
      * 
      */
