@@ -3,7 +3,7 @@
   attribute:
     method: post
     target: html
-    action: replace
+    action: /str_replace/replace
   innerHTML:
     -
       type: textarea
